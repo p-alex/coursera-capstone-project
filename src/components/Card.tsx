@@ -18,7 +18,7 @@ const Card = ({ image, title, price, description }: Props) => {
       <div className="flex flex-col gap-4 p-6 bg-white flex-1">
         <div className="flex justify-between items-center">
           <h3 className="text-[22px]">{title}</h3>
-          <p className="font-bold text-[#EE9972]">${price}</p>
+          <p className="font-bold text-[#eb7139]">${price}</p>
         </div>
         <p className="flex-1 h-[144px]">{description}</p>
         <Link

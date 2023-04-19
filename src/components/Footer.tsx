@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { BsInstagram, BsFacebook, BsPinterest } from "react-icons/bs";
 const Footer = () => {
   return (
-    <footer className="py-16 px-4 bg-[#D9D9D9] text-xl">
+    <footer className="py-16 px-4 bg-[#D9D9D9]">
       <div className="container grid grid-col-1 text-center sm:text-left sm:grid-cols-4 gap-12">
         <img
           src="/images/big-logo.webp"
@@ -42,9 +42,9 @@ const Footer = () => {
             Contact
           </p>
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Menu</li>
+            <li>210 Dayton Valley Rd</li>
+            <li>(775) 246-5392</li>
+            <li>little.lemon@gmail.com</li>
           </ul>
         </div>
 
@@ -57,24 +57,27 @@ const Footer = () => {
               <Link
                 to="/"
                 className="block p-2 hover:opacity-75 transition-opacity"
+                aria-label="Instagram"
               >
-                <BsInstagram className="w-[30px] h-[30px]" />
+                <BsInstagram className="w-[24px] h-[24px]" />
               </Link>
             </li>
             <li>
               <Link
                 to="/"
                 className="block p-2 hover:opacity-75 transition-opacity"
+                aria-label="Facebook"
               >
-                <BsFacebook className="w-[30px] h-[30px]" />
+                <BsFacebook className="w-[24px] h-[24px]" />
               </Link>
             </li>
             <li>
               <Link
                 to="/"
                 className="block p-2 hover:opacity-75 transition-opacity"
+                aria-label="Pinterest"
               >
-                <BsPinterest className="w-[30px] h-[30px]" />
+                <BsPinterest className="w-[24px] h-[24px]" />
               </Link>
             </li>
           </ul>
