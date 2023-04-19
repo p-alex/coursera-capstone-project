@@ -28,10 +28,10 @@ const MobileNavBar = ({ handleToggleMobileNav }: Props) => {
   return (
     <>
       <div
-        className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 animate-fadeIn z-40"
+        className="md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 animate-fadeIn z-40"
         onClick={handleToggleMobileNav}
       ></div>
-      <div className="fixed top-0 right-0 w-[70%] h-full z-50 bg-white animate-fromRight py-4 px-2 flex flex-col items-end">
+      <div className="md:hidden fixed top-0 right-0 w-[70%] h-full z-50 bg-white animate-fromRight py-4 px-2 flex flex-col items-end">
         <FocusTrap element={lastFocusableElement} />
         <button
           onClick={handleToggleMobileNav}
@@ -40,7 +40,7 @@ const MobileNavBar = ({ handleToggleMobileNav }: Props) => {
         >
           <AiOutlineClose className="block w-[30px] h-[30px]" />
         </button>
-        <ul className="flex flex-col gap-2 font-semibold w-full text-xl">
+        <ul className="flex flex-col gap-2 font-semibold w-full text-xl overflow-y-scroll hideScrollBar">
           <li>
             <Link
               to="/"

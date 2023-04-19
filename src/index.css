@@ -39,3 +39,13 @@ code {
 .primaryButton {
   @apply bg-[#F4CE14] text-black hover:bg-[#fce051];
 }
+
+.hideScrollBar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hideScrollBar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
