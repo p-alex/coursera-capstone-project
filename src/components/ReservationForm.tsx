@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import { object, string, number, date } from "yup";
-import { fetchAPI, submitAPI } from "../DummyApi";
+import { submitAPI } from "../DummyApi";
 
 const initialValues = {
   date: "",
@@ -13,11 +13,15 @@ const initialValues = {
 const formValidation = object({
   date: date().required(),
   time: string().required(),
-  guests: number().required().min(1),
+  guests: number().required().min(1).max(8),
   occasion: string().required(),
 });
 
-const ReservationForm = () => {
+interface Props {
+  fetchAPI: ({ date }: { date: Date }) => Promise<string[]>;
+}
+
+const ReservationForm = ({ fetchAPI }: Props) => {
   const [availableTimeList, setAvailableTimeList] = useState<string[]>([]);
   const [loadingTime, setLoadingTime] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -38,13 +42,17 @@ const ReservationForm = () => {
     },
   });
 
-  const handleSetAvailableTime = () => {
-    setLoadingTime(true);
-    setAvailableTimeList([]);
-    fetchAPI({ date: new Date(formik.values.date) })
-      .then((res) => setAvailableTimeList(res))
-      .catch((error) => console.log(error))
-      .finally(() => setLoadingTime(false));
+  const handleSetAvailableTime = async () => {
+    try {
+      setLoadingTime(true);
+      setAvailableTimeList([]);
+      const response = await fetchAPI({ date: new Date(formik.values.date) });
+      setAvailableTimeList(response);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoadingTime(false);
+    }
   };
 
   useEffect(() => {
@@ -57,7 +65,7 @@ const ReservationForm = () => {
       <h1 className="text-5xl font-bold mb-4">Book now</h1>
 
       <div className="flex flex-col gap-1">
-        <label htmlFor="date">Date</label>
+        <label htmlFor="date">Choose date</label>
         <input
           id="date"
           type="date"
@@ -80,7 +88,7 @@ const ReservationForm = () => {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label htmlFor="time">Time</label>
+        <label htmlFor="time">Choose time</label>
         <select
           id="time"
           aria-errormessage="time-error"

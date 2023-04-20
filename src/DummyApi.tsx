@@ -23,7 +23,7 @@ export const fetchAPI = ({ date }: { date: Date }): Promise<string[]> =>
 
     setTimeout(() => {
       resolve(result);
-    }, 1500);
+    }, 1000);
   });
 
 export const submitAPI = function <T>({
