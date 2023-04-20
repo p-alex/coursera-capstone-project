@@ -13,11 +13,12 @@ const MobileNavBar = ({ handleToggleMobileNav }: Props) => {
   const firstFocusableElement = useRef<HTMLButtonElement>(null);
   const lastFocusableElement = useRef<HTMLAnchorElement>(null);
   useDisableScroll();
+
   useEffect(() => {
-    const link = document.getElementById(
+    const firstLink = document.getElementById(
       "first-focusable-link"
     ) as HTMLAnchorElement;
-    link.focus();
+    firstLink.focus();
     return () => {
       const prevFocusableElement = document.getElementById(
         "hamburger"
@@ -25,6 +26,7 @@ const MobileNavBar = ({ handleToggleMobileNav }: Props) => {
       prevFocusableElement?.focus();
     };
   }, []);
+
   return (
     <>
       <div

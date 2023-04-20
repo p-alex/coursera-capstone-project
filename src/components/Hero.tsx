@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <section className="bg-[#495E57] py-16 px-4 text-white min-[900px]:mb-16">
@@ -12,7 +14,9 @@ const Hero = () => {
               We are a family owned Mediterranean restaurant, focused on
               traditional recipes served with a modern twist.
             </p>
-            <button className="button primaryButton">Reserve a Table</button>
+            <Link to="/reserve" className="button primaryButton">
+              Reserve a Table
+            </Link>
           </div>
         </div>
         <div

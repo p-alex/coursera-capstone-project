@@ -33,7 +33,7 @@ code {
 }
 
 .button {
-  @apply font-semibold py-4 px-6 rounded-2xl w-max text-[18px] transition-colors;
+  @apply font-semibold py-4 px-6 rounded-2xl w-max text-[18px] transition-colors disabled:opacity-60 disabled:cursor-not-allowed;
 }
 
 .primaryButton {
@@ -48,4 +48,9 @@ code {
 .hideScrollBar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+input,
+select {
+  @apply block w-full p-2;
 }
