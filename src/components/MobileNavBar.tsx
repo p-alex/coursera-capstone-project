@@ -48,27 +48,44 @@ const MobileNavBar = ({ handleToggleMobileNav }: Props) => {
               to="/"
               className="block py-2 px-4 hover:underline"
               id={"first-focusable-link"}
+              onClick={handleToggleMobileNav}
             >
               Home
             </Link>
           </li>
           <li>
-            <Link to="#" className="block py-2 px-4 hover:underline">
+            <Link
+              to="#"
+              className="block py-2 px-4 hover:underline"
+              onClick={handleToggleMobileNav}
+            >
               About
             </Link>
           </li>
           <li>
-            <Link to="#" className="block py-2 px-4 hover:underline">
+            <Link
+              to="#"
+              className="block py-2 px-4 hover:underline"
+              onClick={handleToggleMobileNav}
+            >
               Menu
             </Link>
           </li>
           <li>
-            <Link to="#" className="block py-2 px-4 hover:underline">
+            <Link
+              to="#"
+              className="block py-2 px-4 hover:underline"
+              onClick={handleToggleMobileNav}
+            >
               Reservations
             </Link>
           </li>
           <li>
-            <Link to="#" className="block py-2 px-4 hover:underline">
+            <Link
+              to="#"
+              className="block py-2 px-4 hover:underline"
+              onClick={handleToggleMobileNav}
+            >
               Order Online
             </Link>
           </li>
@@ -77,6 +94,7 @@ const MobileNavBar = ({ handleToggleMobileNav }: Props) => {
               to="#"
               className="block py-2 px-4 hover:underline"
               ref={lastFocusableElement}
+              onClick={handleToggleMobileNav}
             >
               Login
             </Link>

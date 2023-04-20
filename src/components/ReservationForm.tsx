@@ -18,7 +18,7 @@ const formValidation = object({
 });
 
 const ReservationForm = () => {
-  const [availableTime, setAvailableTime] = useState<string[]>([]);
+  const [availableTimeList, setAvailableTimeList] = useState<string[]>([]);
   const [loadingTime, setLoadingTime] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -30,6 +30,9 @@ const ReservationForm = () => {
       const isOk = await submitAPI({ formData: values });
       if (isOk) {
         setIsSuccess(true);
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 4000);
         formikHelpers.resetForm();
       }
     },
@@ -37,9 +40,9 @@ const ReservationForm = () => {
 
   const handleSetAvailableTime = () => {
     setLoadingTime(true);
-    setAvailableTime([]);
+    setAvailableTimeList([]);
     fetchAPI({ date: new Date(formik.values.date) })
-      .then((res) => setAvailableTime(res))
+      .then((res) => setAvailableTimeList(res))
       .catch((error) => console.log(error))
       .finally(() => setLoadingTime(false));
   };
@@ -93,7 +96,7 @@ const ReservationForm = () => {
           {...formik.getFieldProps("time")}
         >
           <option value="">{loadingTime ? "Loading..." : "Select time"}</option>
-          {availableTime.map((time) => {
+          {availableTimeList.map((time) => {
             return <option key={time}>{time}</option>;
           })}
         </select>

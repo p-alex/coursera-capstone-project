@@ -8,6 +8,7 @@ const Navbar = () => {
   const handleToggleMobileNav = () => {
     setIsMobileNavActive((prevState) => !prevState);
   };
+
   return (
     <>
       <nav className="relative top-0 left-0 w-full h-[70px] md:h-[120px] flex items-center">
